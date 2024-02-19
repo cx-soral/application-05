@@ -8,6 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: dev
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ vars.PROJECT_ID }}
+          workload_identity_provider: ${{ vars.SECRET_WIP_NAME }}
+          service_account: ${{ vars.PROVIDER_SA_EMAIL }}
