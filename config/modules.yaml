@@ -1,0 +1,3 @@
+gcp_module_table:
+  package: gcp-module-bigquery
+  class: Table
