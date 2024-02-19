@@ -1,0 +1,11 @@
+settings:
+  realm_name: soral-base
+  foundation_name: soral-app
+  project_prefix: soral-app-
+environments:
+  dev:
+    match_branch: refs/heads/main
+  sit:
+    match_branch: refs/tags/.*
+  prd:
+    match_branch: none^
