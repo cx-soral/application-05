@@ -4,7 +4,7 @@ locals {
   project_prefix = local.landscape["settings"]["project_prefix"]
 }
 
-resource "google_bigquery_table" "my_table" {
+resource "google_bigquery_table" "bigquery_table" {
   for_each = local.table_index
 
   project = "${local.project_prefix}${var.env_name}"
