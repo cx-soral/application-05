@@ -25,3 +25,8 @@ jobs:
           project_id: ${{ vars.PROJECT_ID }}
           workload_identity_provider: ${{ vars.SECRET_WIP_NAME }}
           service_account: ${{ vars.PROVIDER_SA_EMAIL }}
+
+      - name: Apply Terraform
+        run: |
+          terraform -chdir=iac/environments/dev init -backend-config="bucket=${{ vars.TF_BUCKET_NAME }}"
+          terraform plan
