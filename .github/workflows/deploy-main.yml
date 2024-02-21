@@ -29,4 +29,4 @@ jobs:
       - name: Apply Terraform
         run: |
           terraform -chdir=iac/environments/dev init -backend-config="bucket=${{ vars.TF_BUCKET_NAME }}"
-          terraform plan
+          terraform -chdir=iac/environments/dev plan
